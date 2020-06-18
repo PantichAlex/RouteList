@@ -19,6 +19,10 @@ public class Specialist {
     @Column(name="patronymic_specialist")
     private String patronymic;
 
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private User user;
+
     public long getId() {
         return id;
     }
@@ -59,7 +63,5 @@ public class Specialist {
         this.user = user;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private User user;
 
 }
