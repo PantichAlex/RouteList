@@ -15,14 +15,8 @@ public class LoginControler {
     @GetMapping
     public String login(Model model){
         model.addAttribute("login", new LoginPOJO());
-        return "login";
+        return "loginPage";
     }
 
-    @PostMapping
-    public String checkLogin(@ModelAttribute LoginPOJO login, Model model){
 
-
-        return "debug";
-
-    }
 }

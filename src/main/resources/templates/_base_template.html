@@ -5,12 +5,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <div th:fragment="import_styles">
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/css/base.css}"/>
+    </div>
 
 </head>
 <body>
     <div th:fragment="header">
-
-       <div class="btn btn-danger"></div>
+        <div class="header">
+            <div class="logo">
+                Здесь должно быть лого
+            </div>
+            <div class="auth">
+                <button class="btn btn-success"><a th:href="@{/login}">Войти</a></button>
+                <button class="btn btn-primary"><a th:href="@{/registration}">Регистрация</a></button>
+            </div>
+        </div>
     </div>
 
     <form th:fragment="login_form" action="#" th:action="@{/login}"  method="post">
@@ -22,8 +33,16 @@
             <label for="password">Введите пароль</label>
             <input type="password" class="form-control" id="password"  name="password" placeholder="Введте пароль"/>
         </div>
-        <button type="submit" class="btn btn-primary">Войти</button>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Войти</button>
+            <button class="btn"><a th:href="@{/registration}">Регистрация</a></button>
+        </div>
+
+
     </form>
+
+
+
 
 
 </body>

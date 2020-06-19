@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Главная страница</title>
-    <link rel="stylesheet" th:href="@{/css/base.css}"/>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"/>
+    <div th:replace="_base_template.html::import_styles"> </div>
 </head>
 <body>
     <div th:insert="_base_template.html::header"></div>
