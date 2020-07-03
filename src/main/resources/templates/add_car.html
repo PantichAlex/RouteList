@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление транспортного средства</title>
+    <div th:insert="_base_template.html::import_styles"> </div>
+</head>
+<body>
+    <div class="conatainer">
+        <div class="form">
+            <form action="#" th:action="@{/cars/add_car}" th:object="${car}" method="post">
+
+                <div th:if="${exists}" class="alert alert-warning">
+                    <strong>Внимание</strong> Автомобиль с таким гос номером уже находится в базе
+                </div>
+                <div class="form-group">
+                    <label for="car_name">Название автомобля</label>
+                    <input type="text" th:field="*{name}" placeholder="Название автомобиля" class="form-control" id="car_name"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="car_number">Гос номер. Пример: A999AA38</label>
+                    <input type="text" th:field="*{number}" placeholder="A999AA38" class="form-control" id="car_number">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Добавить новое траспортное средство</button>
+
+            </form>
+        </div>
+
+    </div>
+
+</body>
+</html>

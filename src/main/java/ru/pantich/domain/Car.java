@@ -10,10 +10,10 @@ public class Car {
     @Column(name = "id_car")
     private long id;
 
-    @Column(name = "name_car")
+    @Column(name = "name_car", unique = true)
     private String name;
 
-    @Column(name="number_car")
+    @Column(name="number_car", unique = true)
     private String number;
 
     public long getId() {

@@ -1,5 +1,7 @@
 package ru.pantich.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,6 +36,7 @@ public class RouteSheet {
     private Specialist specialist;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "dd.MM.YYYY HH:mm")
     @Column(name="date")
     private Date date;
 

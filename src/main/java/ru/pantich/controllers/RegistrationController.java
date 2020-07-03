@@ -8,37 +8,37 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.pantich.domain.User;
-import ru.pantich.formsobjects.RegisterPOJO;
+import ru.pantich.formsobjects.RegisterForm;
 import ru.pantich.service.UserService;
 
 @Controller
 @RequestMapping("/registration")
-public class Registration {
+public class RegistrationController {
 
     @Autowired
     private UserService userService;
 
     @GetMapping
     public String registration(Model model){
-        model.addAttribute("register", new RegisterPOJO());
+        model.addAttribute("register", new RegisterForm());
         model.addAttribute("error", "");
         return "registration";
     }
 
     @PostMapping
-    public String registerNewUser(@ModelAttribute RegisterPOJO register, Model model){
+    public String registerNewUser(@ModelAttribute RegisterForm register, Model model){
 
         if(register.getPassword().length()<4){
-            RegisterPOJO registerPOJO=new RegisterPOJO();
-            registerPOJO.setLogin(register.getLogin());
-            model.addAttribute("register", registerPOJO);
+            RegisterForm registerForm =new RegisterForm();
+            registerForm.setLogin(register.getLogin());
+            model.addAttribute("register", registerForm);
             model.addAttribute("error", "Слишком короткий пароль");
             return "register";
         }
         if(!register.getPassword().equals(register.getConfirmPassword())){
-            RegisterPOJO registerPOJO=new RegisterPOJO();
-            registerPOJO.setLogin(register.getLogin());
-            model.addAttribute("register", registerPOJO);
+            RegisterForm registerForm =new RegisterForm();
+            registerForm.setLogin(register.getLogin());
+            model.addAttribute("register", registerForm);
             model.addAttribute("error", "Пароли не совпадают");
             return "register";
         }
@@ -47,7 +47,7 @@ public class Registration {
         user.setPassword(register.getPassword());
         boolean saveUser=userService.saveUser(user);
         if(!saveUser){
-            model.addAttribute("register",new RegisterPOJO());
+            model.addAttribute("register",new RegisterForm());
             model.addAttribute("error", "Такой пользователь уже существует");
             return "register";
         }

@@ -47,8 +47,8 @@
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
-            <artifactId>bootstrap-datepicker</artifactId>
-            <version>1.9.0</version>
+            <artifactId>bootstrap-datetimepicker</artifactId>
+            <version>6aa746736d</version>
         </dependency>
 
 

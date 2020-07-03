@@ -4,17 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.pantich.formsobjects.LoginForm;
 
 @Controller
-@RequestMapping("/login")
-public class LoginControler {
+@RequestMapping("/error")
+public class ErrorController {
 
     @GetMapping
-    public String login(Model model){
-        model.addAttribute("login", new LoginForm());
-        return "loginPage";
+    public String error(Model model){
+
+        return "error";
     }
-
-
 }

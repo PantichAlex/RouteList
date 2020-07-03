@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Система составления маршрутных листов</title>
+    <div th:insert="_base_template.html::import_styles"></div>
+    <link rel="stylesheet" th:href="@{/css/home/home.css}">
+</head>
+<body>
+    <div class="container">
+        <div class="routelist">
+
+
+            <button class="btn btn-success routelist__add">
+                <a th:href="@{/routes/add_route}">+ Добавить маршрут</a>
+            </button>
+
+        </div>
+
+    </div>
+</body>
+</html>

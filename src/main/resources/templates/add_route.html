@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление нового маршрута</title>
+    <div th:include="_base_template.html::import_styles"></div>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-datetimepicker/6aa746736d/css/datetimepicker.css}">
+    <link rel="stylesheet" th:href="@{/css/addRoute/add_route.css}" />
+</head>
+<body>
+
+    <div th:replace="_base_template.html::header"></div>
+    <div class="container">
+       <h1 th:text="${companyTitle}"></h1>
+       <form action="#" th:action="@{/routes/add_route}" th:object="${newRoute}" method="post">
+           <div class="form-group d-flex flex-row">
+               <label for="auto-num">Номер автомоблия</label>
+               <input type="text" id="auto-num" class="form-control">
+               <label for="auto-mark" class="ml-3">Марка автомобиля</label>
+               <input type="text" id="auto-mark" class="form-control">
+           </div>
+           <div class="form-group d-flex flex-row">
+               <label for="driver">Водитель</label>
+               <input type="text" id="driver" class="form-control">
+               <label for="specialist">Специалист</label>
+               <input type="text" id="specialist" class="form-control">
+               <label for="storekeeper">Кладовщик</label>
+               <input type="text" id="storekeeper" class="form-control">
+           </div>
+           <div class="form-group d-flex flex-row">
+               <label for="datetime">Введите дату</label>
+               <input type="datetime-local" id="datetime" class="form-control">
+
+           </div>
+           <table class="table">
+               <thead>
+                   <tr>
+                       <th scope="col">№</th>
+                       <th scope="col">Номер накладной</th>
+                       <th scope="col">Клиент</th>
+                       <th scope="col">Адрес доставки</th>
+                       <th scope="col">Комментарий</th>
+                   </tr>
+
+               </thead>
+               <tbody id="table">
+                   <tr th:each="route: ${routes}">
+                       <th scope="row"></th>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                   </tr>
+               </tbody>
+           </table>
+           
+           <div class="form-group">
+               <button type="submit" class="btn btn-primary">Cохранить</button>
+               <button class="btn btn-info">Печать</button>
+           </div>
+
+       </form>
+    </div>
+
+    <div th:include="_base_template.html::scripts"></div>
+    <script th:src="@{/webjars/bootstrap-datetimepicker/6aa746736d/js/bootstrap-datetimepicker.js}"></script>
+    <script th:src="@{/js/addRoute/add_route.js}"></script>
+</body>
+</html>

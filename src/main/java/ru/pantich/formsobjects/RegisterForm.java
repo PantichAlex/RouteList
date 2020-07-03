@@ -1,6 +1,6 @@
 package ru.pantich.formsobjects;
 
-public class RegisterPOJO {
+public class RegisterForm {
     private String login;
     private String password;
     private String confirmPassword;
