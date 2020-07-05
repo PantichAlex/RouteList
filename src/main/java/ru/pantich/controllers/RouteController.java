@@ -10,11 +10,13 @@ import ru.pantich.formsobjects.RouteForm;
 @RequestMapping("/routes")
 public class RouteController {
 
-    @GetMapping("/add_route")
+    @GetMapping
     public String addRoute(Model model){
         String companyTitle="Название компании";
+        model.addAttribute("page_routes", true);
         model.addAttribute("companyTitle", companyTitle);
         model.addAttribute("newRoute", new RouteForm());
+
 
         return "add_route";
     }

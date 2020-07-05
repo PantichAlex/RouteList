@@ -28,12 +28,14 @@ public class RouteSheet {
     @JoinColumn(name = "id_car", referencedColumnName = "id_car")
     private Car car;
 
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "routeSheet")
     private List<Waybill> waybill=new ArrayList<Waybill>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_specialist", referencedColumnName = "id_specialist")
     private Specialist specialist;
+
 
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd.MM.YYYY HH:mm")

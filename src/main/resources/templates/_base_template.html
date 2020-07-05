@@ -13,17 +13,34 @@
 </head>
 <body>
     <div th:fragment="header" class="header">
+        <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
+
+                <a href="#" class="navbar-brand" th:href="@{/home}">ПМЛ</a>
+                <button class="navbar-toggler" type="button" data-target="#main-nav" data-toggle="collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Загрузка данных</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${page_routes} ? active : ''">
+                            <a class="nav-link" href="#" th:href="@{/routes}">Маршрутный лист</a>
+                        </li>
+                        <li class="nav-item" th:classappend="${page_reports} ? active : ''">
+                            <a class="nav-link" href="#" th:href="@{/reports}">Отчеты</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+        </nav>
 
     </div>
-
-
-
-
     <div th:fragment="scripts">
         <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
     </div>
-
-
 </body>
 </html>
