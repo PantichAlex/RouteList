@@ -21,15 +21,15 @@
                 </button>
 
                 <div id="main-nav" class="collapse navbar-collapse">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mr-auto nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Загрузка данных</a>
+                            <a class="nav-link" th:classappend="${!isSpecialist} ? disabled : ''" href="#">Загрузка данных</a>
                         </li>
                         <li class="nav-item" th:classappend="${page_routes} ? active : ''">
-                            <a class="nav-link" href="#" th:href="@{/routes}">Маршрутный лист</a>
+                            <a class="nav-link" th:classappend="${!isSpecialist} ? disabled : ''" href="#" th:href="@{/routes}">Маршрутный лист</a>
                         </li>
-                        <li class="nav-item" th:classappend="${page_reports} ? active : ''">
-                            <a class="nav-link" href="#" th:href="@{/reports}">Отчеты</a>
+                        <li class="nav-item" th:classappend="${page_reports} ? active : ''" >
+                            <a class="nav-link"  href="#" th:href="@{/reports}">Отчеты</a>
                         </li>
                     </ul>
                 </div>

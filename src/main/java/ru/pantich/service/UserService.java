@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.pantich.domain.User;
+import ru.pantich.domain.UserRole;
 import ru.pantich.repo.UserRepo;
+
+import javax.management.relation.Role;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -35,5 +37,17 @@ public class UserService implements UserDetailsService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
         return true;
+    }
+
+    public UserRole getUserRole(String login){
+
+        User user=userRepo.findByLogin(login);
+        return user.getRole();
+    }
+
+    public boolean isSpecialist(String login){
+
+        UserRole role=getUserRole(login);
+        return role.getId()==1;
     }
 }
