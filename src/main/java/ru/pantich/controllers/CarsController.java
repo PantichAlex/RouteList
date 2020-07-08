@@ -23,9 +23,13 @@ public class CarsController {
         return "add_car";
     }
 
+    //TODO: Не забудь дописать обработку пустой формы
     @PostMapping("/add_car")
     public String addCarr(@ModelAttribute Car car, Model model){
         Car carFromDb=carRepo.findByNumber(car.getNumber());
+        if(car.getNumber().length()==0 || car.getName().length()==0 ){
+            return "add_car";
+        }
         if(carFromDb != null){
             car.setNumber("");
             model.addAttribute("car", car);

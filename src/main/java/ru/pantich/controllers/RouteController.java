@@ -25,6 +25,6 @@ public class RouteController {
         model.addAttribute("newRoute", new RouteForm());
         String login=request.getUserPrincipal().getName();
         model.addAttribute("isSpecialist", userService.isSpecialist(login));
-        return "add_route";
+        return "route_list";
     }
 }

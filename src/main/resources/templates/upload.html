@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка данных</title>
+    <div th:insert="_base_template.html::import_styles"> </div>
+</head>
+<body>
+
+    <div th:replace="_base_template.html::header"></div>
+    <div class="container">
+
+        <a th:href="@{/waybill/add}" class="btn btn-success btn-md">Добавить заказ</a>
+        <a th:href="@{/cars/add_car}" class="btn btn-success btn-md">Добавить автомобиль</a>
+
+    </div>
+    <div th:include="_base_template.html::scripts"></div>
+</body>
+</html>
