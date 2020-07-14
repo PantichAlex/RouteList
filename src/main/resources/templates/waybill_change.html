@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Рдактирование заявки</title>
+    <div th:insert="_base_template.html::import_styles"> </div>
 </head>
 <body>
-$END$
+    <div th:replace="_base_template.html::header"></div>
+    <div class="container">
+
+       <div class="card">
+           <div class="card-header">
+                <h3>Назначение исполнителей</h3>
+           </div>
+           <div class="card-body">
+
+               <form action="#" th:action="@{/waybill/{id}(id=${waybill.id})}"
+                     th:object="${routeSheet}" method="post">
+                    <div class="form-group">
+                        <h3 th:text="${'Специалист: '+specialist.name+' '+specialist.patronymic+' '+specialist.surname}"></h3>
+                    </div>
+                   <div class="form-group">
+                       <label for="driver">Выберите водителя</label>
+                       <select id="driver" list="drivers" class="form-control" th:field="*{driverId}">
+                           <option th:each="driver: ${drivers}"
+                                   th:value="${driver.id}"
+                                   th:text="${driver.name+' '+driver.patronymic+' '+driver.surname}"
+                                   value=""
+                           ></option>
+                       </select>
+                   </div>
+                   <div class="form-group">
+                       <label for="car">Выберите Автомобиль</label>
+                       <select id="car" class="form-control" th:field="*{carId}">
+                           <option value="" disabled selected>Выберите автомобль</option>
+                           <option th:each="car: ${cars}"
+                                   th:value="${car.id}"
+                                   th:text="${car.number+' '+car.name}"
+                                   value=""
+                           ></option>
+                       </select>
+                   </div>
+                   <input type="hidden" th:field="*{specialistId}">
+                   <button type="submit" class="btn btn-primary">Сохранить</button>
+               </form>
+           </div>
+       </div>
+
+    </div>
+    <div th:replace="_base_template.html::footer"></div>
+    <div th:include="_base_template.html::scripts"></div>
 </body>
 </html>

@@ -15,9 +15,9 @@ public class User {
     @Column(name="password")
     private String password;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="id_user_role", referencedColumnName = "id_user_role")
-    private UserRole role;
+    @Column(name = "user_role")
+    @Enumerated(EnumType.STRING)
+    Roles role;
 
     public long getId() {
         return id;
@@ -35,14 +35,6 @@ public class User {
         this.login = login;
     }
 
-    public UserRole getRole() {
-        return role;
-    }
-
-
-    public void setRole(UserRole role) {
-        this.role = role;
-    }
 
     public String getPassword() {
         return password;
@@ -50,5 +42,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Roles getRole() {
+        return role;
+    }
+
+    public void setRole(Roles role) {
+        this.role = role;
     }
 }

@@ -13,9 +13,11 @@
     <div class="container">
 
         <a th:href="@{/waybill/add}" class="btn btn-success btn-md">Добавить заказ</a>
-        <a th:href="@{/cars/add_car}" class="btn btn-success btn-md">Добавить автомобиль</a>
-
+        <a th:href="@{/cars/add}" class="btn btn-success btn-md">Добавить автомобиль</a>
+        <a th:href="@{/driver/add}" class="btn btn-success btn-md">Добавить водителя</a>
+        <a th:if="${isSpecialist}" th:href="@{/specialist}"class="btn btn-success btn-md">Задать свои данные</a>
     </div>
+    <div th:replace="_base_template.html::footer"></div>
     <div th:include="_base_template.html::scripts"></div>
 </body>
 </html>

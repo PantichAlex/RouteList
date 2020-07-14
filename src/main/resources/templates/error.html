@@ -6,6 +6,10 @@
     <div th:insert="_base_template.html::import_styles"></div>
 </head>
 <body>
-    ошибка
+    <div th:replace="_base_template.html::header"></div>
+    <div class="container">
+        Ошибка
+    </div>
+    <div th:replace="_base_template.html::footer"></div>
 </body>
 </html>

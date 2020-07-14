@@ -22,7 +22,7 @@ public class UploadDataController {
 
         model.addAttribute("page_upload", true);
         String login=request.getUserPrincipal().getName();
-        model.addAttribute("isSpecialist", userService.isSpecialist(login));
+
 
 
         return "upload";

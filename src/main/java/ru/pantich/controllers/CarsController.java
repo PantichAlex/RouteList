@@ -17,17 +17,18 @@ public class CarsController {
     @Autowired
     private CarRepo carRepo;
 
-    @GetMapping("/add_car")
+    @GetMapping("/add")
     public String addCar(Model model){
         model.addAttribute("car", new Car());
         return "add_car";
     }
 
-    //TODO: Не забудь дописать обработку пустой формы
+
     @PostMapping("/add_car")
     public String addCarr(@ModelAttribute Car car, Model model){
         Car carFromDb=carRepo.findByNumber(car.getNumber());
         if(car.getNumber().length()==0 || car.getName().length()==0 ){
+            model.addAttribute("car", car);
             return "add_car";
         }
         if(carFromDb != null){

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Специалист</title>
+    <div th:insert="_base_template.html::import_styles"> </div>
+</head>
+<body>
+
+<div th:replace="_base_template.html::header"></div>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Данные специалиста</h3>
+        </div>
+        <div class="card-body">
+            <div th:if="${message}" th:text="${message}" class="alert alert-warning"></div>
+            <form th:action="@{/specialist}" method="post" th:object="${specialist}">
+                <div class="form-group">
+                    <label for="surname">Введите свою фамилию</label>
+                    <input type="text" id="surname" class="form-control" th:field="*{surname}">
+                </div>
+                <div class="form-group">
+                    <label for="name">Введите свое имя</label>
+                    <input type="text" id="name" class="form-control" th:field="*{name}" >
+                </div>
+                <div class="form-group">
+                    <label for="patronymic">Введите свое отчество</label>
+                    <input type="text" id="patronymic" class="form-control" th:field="*{patronymic}">
+                </div>
+
+
+                <input type="submit" class="btn btn-primary">
+
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="_base_template.html::footer"></div>
+<div th:include="_base_template.html::scripts"></div>
+</body>

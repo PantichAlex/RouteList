@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявка не обработана</title>
+    <div th:insert="_base_template.html::import_styles"> </div>
+</head>
+<body>
+<div th:replace="_base_template.html::header"></div>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3 th:text="${name}"></h3>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-info">
+                Данная заявка еще не обработана
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div th:replace="_base_template.html::footer"></div>
+<div th:include="_base_template.html::scripts"></div>
+</body>
+</html>

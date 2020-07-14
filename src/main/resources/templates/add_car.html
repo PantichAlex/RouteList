@@ -8,29 +8,39 @@
     <div th:insert="_base_template.html::import_styles"> </div>
 </head>
 <body>
-    <div class="conatainer">
-        <div class="form">
-            <form action="#" th:action="@{/cars/add_car}" th:object="${car}" method="post">
+    <div th:replace="_base_template.html::header"></div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Добавление автомобиля</h3>
+            </div>
+            <div class="card-body">
+                <div class="form">
+                    <form action="#" th:action="@{/cars/add_car}" th:object="${car}" method="post">
 
-                <div th:if="${exists}" class="alert alert-warning">
-                    <strong>Внимание</strong> Автомобиль с таким гос номером уже находится в базе
-                </div>
-                <div class="form-group">
-                    <label for="car_name">Название автомобля</label>
-                    <input type="text" th:field="*{name}" placeholder="Название автомобиля" class="form-control" id="car_name"/>
-                </div>
+                        <div th:if="${exists}" class="alert alert-warning">
+                            <strong>Внимание</strong> Автомобиль с таким гос номером уже находится в базе
+                        </div>
+                        <div class="form-group">
+                            <label for="car_name">Название автомобля</label>
+                            <input type="text" th:field="*{name}" placeholder="Название автомобиля" class="form-control" id="car_name"/>
+                        </div>
 
-                <div class="form-group">
-                    <label for="car_number">Гос номер. Пример: A999AA38</label>
-                    <input type="text" th:field="*{number}" placeholder="A999AA38" class="form-control" id="car_number">
-                </div>
+                        <div class="form-group">
+                            <label for="car_number">Гос номер. Пример: A999AA38</label>
+                            <input type="text" th:field="*{number}" placeholder="A999AA38" class="form-control" id="car_number">
+                        </div>
 
-                <button type="submit" class="btn btn-primary">Добавить новое траспортное средство</button>
+                        <button type="submit" class="btn btn-primary">Добавить новое траспортное средство</button>
 
-            </form>
+                    </form>
+            </div>
         </div>
+    </div>
 
     </div>
 
+
+    <div th:replace="_base_template.html::footer"></div>
 </body>
 </html>

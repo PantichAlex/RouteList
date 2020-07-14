@@ -10,9 +10,13 @@
 <body>
     <div th:replace="_base_template.html::header"></div>
     <div class="container">
+        <a th:href="@{/reports/waybills}" class="btn btn-success btn-md">Отчет по заказам</a>
+        <a th:href="@{/reports/drivers}" class="btn btn-success btn-md">Отчет по водителям</a>
+        <a th:href="@{/reports/cars}" class="btn btn-success btn-md">Отчет по автомобилям</a>
+        <a th:href="@{/reports/specialists}" class="btn btn-success btn-md">Отчет по специалистам</a>
 
     </div>
-
+    <div th:replace="_base_template.html::footer"></div>
     <div th:include="_base_template.html::scripts"></div>
 </body>
 </html>

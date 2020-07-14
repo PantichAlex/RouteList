@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Страница не найдена</title>
+    <div th:insert="_base_template.html::import_styles"> </div>
 </head>
 <body>
-$END$
+    <div th:replace="_base_template.html::header"></div>
+    <div class="container">
+        <div th:text="${message}" class="alert alert-danger">
+
+        </div>
+
+
+    </div>
+    <div th:replace="_base_template.html::footer"></div>
+    <div th:include="_base_template.html::scripts"></div>
 </body>
 </html>

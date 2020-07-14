@@ -8,34 +8,35 @@
     <div th:insert="_base_template.html::import_styles"> </div>
 </head>
 <body>
-<div th:replace="_base_template.html::header"></div>
-<div class="container">
+    <div th:replace="_base_template.html::header"></div>
+    <div class="container">
 
-    <a th:href="@{/waybill/add}" class="btn btn-success btn-md">Добавить заявку</a>
-    <table class="table">
-        <thead>
-            <th>Имя заказчика</th>
-            <th>Адрес заказчика</th>
-            <th>Номер телефона</th>
-            <th>Исполнитель</th>
-        </thead>
-        <tbody>
+        <a th:href="@{/waybill/add}" class="btn btn-success btn-md">Добавить заявку</a>
+        <table class="table">
+            <thead>
+                <th>Имя заказчика</th>
+                <th>Адрес заказчика</th>
+                <th>Номер телефона</th>
+                <th>Исполнитель</th>
+            </thead>
+            <tbody>
 
-            <tr th:each="waybill: ${waybills}">
-                <td th:text="${waybill.nameDelivery}"></td>
-                <td th:text="${waybill.addressDelivery}"></td>
-                <td th:text="${waybill.phone}"></td>
-                <td>
-                    <a th:href="@{/waybill/add/{id}(id=${waybill.id})}" class="btn btn-success btn-sm">
-                        Добавить исполнителей
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                <tr th:each="waybill: ${waybills}">
+                    <td th:text="${waybill.nameDelivery}"></td>
+                    <td th:text="${waybill.addressDelivery}"></td>
+                    <td th:text="${waybill.phone}"></td>
+                    <td >
+                        <a  th:href="@{/waybill/{id}(id=${waybill.id})}" class="btn btn-success btn-sm">
+                            Добавить исполнителей
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
 
-</div>
-<div th:include="_base_template.html::scripts"></div>
+    </div>
+    <div th:replace="_base_template.html::footer"></div>
+    <div th:include="_base_template.html::scripts"></div>
 </body>
 </html>

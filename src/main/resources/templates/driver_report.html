@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <div th:include="_base_template.html::import_styles"></div>
+    <title>Отчет по водителю</title>
+</head>
+<body>
+
+    <div th:replace="_base_template.html::header"></div>
+    <div class="container">
+        <div class="card">
+
+           <div class="card-header">
+               <h3 th:text="${'Отчет по водителю: '+driver.name+' '+driver.patronymic+' '+driver.surname}"></h3>
+           </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Заказчик
+                            </th>
+                            <th>
+                                Адрес
+                            </th>
+                            <th>
+                                Телефон заказчика
+                            </th>
+                            <th>
+                                дата
+                            </th>
+                            <th>
+                                Автомобиль
+                            </th>
+                            <th>
+                                Специалист
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="report: ${driverReportPojos}">
+                            <td th:text="${report.nameDelivery}"></td>
+                            <td th:text="${report.address}"></td>
+                            <td th:text="${report.phone}"></td>
+                            <td th:text="${report.date}">  </td>
+                            <td th:text="${report.carName}"></td>
+                            <td th:text="${report.specialist}"></td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="#" onclick="history.back();return false;" class="btn btn-success btn-md">Назад</a>
+            </div>
+        </div>
+    </div>
+    <div th:replace="_base_template.html::footer"></div>
+    <div th:include="_base_template.html::scripts"></div>
+</body>
+</html>

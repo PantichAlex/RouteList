@@ -33,14 +33,14 @@ public class RegistrationController {
             registerForm.setLogin(register.getLogin());
             model.addAttribute("register", registerForm);
             model.addAttribute("error", "Слишком короткий пароль");
-            return "register";
+            return "registration";
         }
         if(!register.getPassword().equals(register.getConfirmPassword())){
             RegisterForm registerForm =new RegisterForm();
             registerForm.setLogin(register.getLogin());
             model.addAttribute("register", registerForm);
             model.addAttribute("error", "Пароли не совпадают");
-            return "register";
+            return "registration";
         }
         User user=new User();
         user.setLogin(register.getLogin());

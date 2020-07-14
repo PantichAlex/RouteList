@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление водителя</title>
+    <div th:insert="_base_template.html::import_styles"> </div>
+</head>
+<body>
+
+    <div th:replace="_base_template.html::header"></div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Добавление нового водителя</h3>
+            </div>
+            <div class="card-body">
+                <div th:if="${hasEmptyField}" class="alert alert-warning">Не все поля заполнены</div>
+                <form th:action="@{/driver/add}" method="post" th:object="${driver}">
+                    <div class="form-group">
+                        <label for="surname">Введите фамилию водителя</label>
+                        <input type="text" id="surname" class="form-control" th:field="*{surname}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Введите имя водителя</label>
+                        <input type="text" id="name" class="form-control" th:field="*{name}" >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="patronymic">Введите отчество</label>
+                        <input type="text" id="patronymic" class="form-control" th:field="*{patronymic}">
+                    </div>
+
+
+                    <input type="submit" class="btn btn-primary">
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div th:replace="_base_template.html::footer"></div>
+    <div th:include="_base_template.html::scripts"></div>
+</body>
+</html>
